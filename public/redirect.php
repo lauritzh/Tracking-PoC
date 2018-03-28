@@ -2,6 +2,7 @@
 /**
  *  Quick and dirty Implementation of Tracking POC, based on cached Redirects (Moved Permanently [301])
  */
+
     // Connect to db, we want to keep track of our visitors
     $link = mysqli_connect('localhost', 'root', 'root', 'tracking');
     if (!$link) die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());
@@ -26,6 +27,6 @@
         mysqli_query($link, $query);
 
         // Set HTTP Header
-        header('Location: test.php?id=' . $id, TRUE, 301);
+        header('Location: redirect.php?id=' . $id, TRUE, 301);
     }
     mysqli_close($link);
